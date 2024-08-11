@@ -40,7 +40,7 @@ function SignUp() {
 
     const login = (username, password) => {
         let obj = { username, password };
-        axios.post('http://localhost:9192/users/authenticate', obj)
+        axios.post('http://localhost:9194/users/authenticate', obj)
             .then(response => {
                 console.log("Response data of user authenticate", response);
 
@@ -93,9 +93,12 @@ function SignUp() {
 
         let obj = { username, password, emailId, role };
 
-        axios.post('http://localhost:9192/users/new', obj)
+        axios.post('http://localhost:9194/users/new', obj)
             .then(response => {
-                login(username, password);
+                // login(username, password);
+                console.log(response);
+                navigate("/login")
+                
             })
             .catch(error => {
                 setMsg("Issue in processing signup");
@@ -196,7 +199,7 @@ function SignUp() {
                         Have an Account? &nbsp;
                         <Button
                             color="primary"
-                            onClick={() => navigate("/auth/login")}
+                            onClick={() => navigate("/login")}
                         >
                             Login
                         </Button>
