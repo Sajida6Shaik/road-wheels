@@ -29,6 +29,7 @@ function Navbar() {
   const [token, setToken] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
   const open = Boolean(anchorEl);
 
   const navigate = useNavigate();
@@ -36,8 +37,10 @@ function Navbar() {
   useEffect(() => {
     let token = localStorage.getItem("JWT");
     let username = localStorage.getItem("username");
+    let role = localStorage.getItem("role");
     setUsername(username);
     setToken(token);
+    setRole(role);
   });
 
   const handleLogout = (e) => {
@@ -62,7 +65,9 @@ function Navbar() {
             src={require("../assests/logo-car.jpg")}
             alt="Road Wheels Logo"
           />{" "}
-          <Typography variant="h5">Road Wheels - Make your trip Enjoyable</Typography>
+          <Typography variant="h5">
+            Road Wheels - Make your trip Enjoyable
+          </Typography>
           <Box
             sx={{
               marginLeft: "auto",
@@ -72,9 +77,17 @@ function Navbar() {
               gap: "10px",
             }}
           >
-            <Button color="inherit" component={Link} to="/carlist">
-              cars
-            </Button>
+            {role === "ADMIN" && (
+              <Button onClick={() => navigate("/admin/dashboard")}>
+                Dashboard
+              </Button>
+            )}
+            {role === "HOST" && (
+              <Button onClick={() => navigate("/host/dashboard")}>
+                Dashboard
+              </Button>
+            )}
+            <Button onClick={() => navigate("/carlist")}>cars</Button>
             {token && (
               <>
                 <Typography variant="h6">Hi, Welcome {username}</Typography>
@@ -143,7 +156,10 @@ function Navbar() {
           </Box>
         </Toolbar>
       </AppBar>
-      <br /><br/>
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }

@@ -190,6 +190,7 @@ export const AddBooking = () => {
               <option value="NotServed">NotServed</option>
               <option value="Cancelled">Cancelled</option>
             </select>
+            <br/><br/>
             {/* submit button */}
             <button
               onClick={(e) => saveOrUpdateBooking(e)}

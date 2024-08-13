@@ -34,53 +34,6 @@ const Dashboard = () => {
         </h1>
       </div>
 
-      <div className="col-12">
-        <ul className="nav nav-tabs" id="pills-tab" role="tablist">
-          <li className="nav-item" role="presentation">
-            <button
-              className="nav-link active"
-              id="pills-add-car-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-add-car"
-              type="button"
-              role="tab"
-              aria-controls="pills-add-car"
-              aria-selected="true"
-            >
-              Add Car
-            </button>
-          </li>
-          <li className="nav-item" role="presentation">
-            <button
-              className="nav-link"
-              id="pills-edit-car-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-edit-car"
-              type="button"
-              role="tab"
-              aria-controls="pills-edit-car"
-              aria-selected="false"
-            >
-              Edit Car
-            </button>
-          </li>
-          <li className="nav-item" role="presentation">
-            <button
-              className="nav-link"
-              id="pills-host-cars-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-host-cars"
-              type="button"
-              role="tab"
-              aria-controls="pills-host-cars"
-              aria-selected="false"
-            >
-              Host Cars
-            </button>
-          </li>
-        </ul>
-      </div>
-
       <div className="col-12 p-0">
         <div className="tab-content" id="pills-tabContent">
           <div

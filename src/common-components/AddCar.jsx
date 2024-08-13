@@ -137,6 +137,7 @@ export const AddCar = () => {
           console.log(
             "Response received from save api..." + JSON.stringify(response.data)
           );
+          navigate("/car");
         })
         .catch((error) => {
           console.log("error received from save api..", error);

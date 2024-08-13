@@ -62,10 +62,10 @@ export const AddCustomer = () => {
     }
   }, []);
 
-  //Save and updatecustomer function 
+  //Save and updatecustomer function
   const saveOrUpdateCustomer = (e) => {
     e.preventDefault();
-//Customer Object to Update
+    //Customer Object to Update
     const customer = { age, city, area, date, emailId };
     customer.user = {
       username: name,
@@ -94,6 +94,7 @@ export const AddCustomer = () => {
           console.log(
             "Response received from save api..." + JSON.stringify(response.data)
           );
+          navigate("/customer");
         })
         .catch((error) => {
           console.log("error received from save api..", error);
