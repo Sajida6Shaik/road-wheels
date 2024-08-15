@@ -87,7 +87,9 @@ function Navbar() {
                 Dashboard
               </Button>
             )}
-            <Button onClick={() => navigate("/carlist")}>cars</Button>
+            {role !== "HOST" && role !== "ADMIN" && (
+              <Button onClick={() => navigate("/carlist")}>cars</Button>
+            )}
             {token && (
               <>
                 <Typography variant="h6">Hi, Welcome {username}</Typography>

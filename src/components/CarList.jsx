@@ -38,8 +38,10 @@ const CarList = ({ filteredCars }) => {
   const [cars, setCars] = useState(filteredCars);
   const [filtered, setFiltered] = useState([]);
   const [isAc, setIsAc] = useState("");
+  const [role, setRole] = useState("");
 
   useEffect(() => {
+    setRole(localStorage.getItem("ROLE"));
     axios
       .get("http://localhost:9194/car/getallcars")
       .then((res) => {
@@ -64,23 +66,24 @@ const CarList = ({ filteredCars }) => {
   return (
     <Paper elevation={5}>
       <Box>
-        {" "}
-        <FormControl>
-          <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-controlled-radio-buttons-group"
-            name="controlled-radio-buttons-group"
-            value={isAc}
-            onChange={handleChange}
-          >
-            <FormControlLabel value="AC" control={<Radio />} label="AC" />
-            <FormControlLabel
-              value="NON-AC"
-              control={<Radio />}
-              label="Non-AC"
-            />
-          </RadioGroup>
-        </FormControl>
+        {role && (
+          <FormControl>
+            <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={isAc}
+              onChange={handleChange}
+            >
+              <FormControlLabel value="AC" control={<Radio />} label="AC" />
+              <FormControlLabel
+                value="NON-AC"
+                control={<Radio />}
+                label="Non-AC"
+              />
+            </RadioGroup>
+          </FormControl>
+        )}
       </Box>
       <Box
         p={3}

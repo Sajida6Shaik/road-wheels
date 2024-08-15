@@ -52,6 +52,9 @@ function SignUp() {
   const [role, setRole] = useState("");
   const [msg, setMsg] = useState("");
   const [mobile, setMobile] = useState("");
+  const [age, setAge] = useState("");
+  const [city, setCity] = useState("");
+  const [area, setArea] = useState("");
   const navigate = useNavigate();
 
   const isSignUpDisabled = !username || !password || !emailId || !role;
@@ -113,7 +116,7 @@ function SignUp() {
       return;
     }
 
-    let obj = { username, password, emailId, mobile, role };
+    let obj = { username, password, emailId, mobile, role, age, city, area };
 
     axios
       .post("http://localhost:9194/users/new", obj)
@@ -212,10 +215,26 @@ function SignUp() {
               </Select>
             </FormControl>
           </Box>
-          {role === "HOST" && (
+
+          <Box mb={2}>
+            <TextField
+              fullWidth
+              placeholder="Mobile Number"
+              type="text"
+              label={
+                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: 8 }} />
+              }
+              variant="outlined"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
+          </Box>
+
+          <>
             <Box mb={2}>
               <TextField
                 fullWidth
+                placeholder="Age"
                 type="text"
                 label={
                   <FontAwesomeIcon
@@ -224,11 +243,44 @@ function SignUp() {
                   />
                 }
                 variant="outlined"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
               />
             </Box>
-          )}
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                placeholder="City"
+                type="text"
+                label={
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    style={{ marginRight: 8 }}
+                  />
+                }
+                variant="outlined"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </Box>
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                placeholder="Area"
+                type="text"
+                label={
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    style={{ marginRight: 8 }}
+                  />
+                }
+                variant="outlined"
+                value={area}
+                onChange={(e) => setArea(e.target.value)}
+              />
+            </Box>
+          </>
+
           <Button
             variant="contained"
             color="primary"

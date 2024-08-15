@@ -46,7 +46,7 @@ const CarCard = ({ car }) => {
     >
       <Card
         sx={{
-          width: 335,
+          width: 320,
           margin: 2,
           boxShadow: 5,
           borderRadius: 3,
